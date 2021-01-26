@@ -451,6 +451,10 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 		
 		private int _idCatSexo;
 		
+		private System.Nullable<System.DateTime> _dteFechaNacimiento;
+		
+		private System.Nullable<int> _intNumHermanos;
+		
 		private EntitySet<Direccion> _Direccion;
 		
 		private EntityRef<CatSexo> _CatSexo;
@@ -471,6 +475,10 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
     partial void OnstrAMaternoChanged();
     partial void OnidCatSexoChanging(int value);
     partial void OnidCatSexoChanged();
+    partial void OndteFechaNacimientoChanging(System.Nullable<System.DateTime> value);
+    partial void OndteFechaNacimientoChanged();
+    partial void OnintNumHermanosChanging(System.Nullable<int> value);
+    partial void OnintNumHermanosChanged();
     #endregion
 		
 		public Persona()
@@ -600,6 +608,46 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 					this._idCatSexo = value;
 					this.SendPropertyChanged("idCatSexo");
 					this.OnidCatSexoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dteFechaNacimiento", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dteFechaNacimiento
+		{
+			get
+			{
+				return this._dteFechaNacimiento;
+			}
+			set
+			{
+				if ((this._dteFechaNacimiento != value))
+				{
+					this.OndteFechaNacimientoChanging(value);
+					this.SendPropertyChanging();
+					this._dteFechaNacimiento = value;
+					this.SendPropertyChanged("dteFechaNacimiento");
+					this.OndteFechaNacimientoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_intNumHermanos", DbType="Int")]
+		public System.Nullable<int> intNumHermanos
+		{
+			get
+			{
+				return this._intNumHermanos;
+			}
+			set
+			{
+				if ((this._intNumHermanos != value))
+				{
+					this.OnintNumHermanosChanging(value);
+					this.SendPropertyChanging();
+					this._intNumHermanos = value;
+					this.SendPropertyChanged("intNumHermanos");
+					this.OnintNumHermanosChanged();
 				}
 			}
 		}
