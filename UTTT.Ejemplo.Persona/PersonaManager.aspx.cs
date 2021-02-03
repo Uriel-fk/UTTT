@@ -90,6 +90,9 @@ namespace UTTT.Ejemplo.Persona
                         //al editar se debe de mostrar el dato de numero de hermanos
                         this.txtHermanos.Text = this.baseEntity.intNumHermanos.ToString();
                         this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
+                        this.txtCorreo.Text = this.baseEntity.strCorreo;
+                        this.txtCodigoP.Text = this.baseEntity.strCodigoP;
+                        this.txtRfc.Text = this.baseEntity.strRfc;
                     }                
                 }
 
@@ -119,6 +122,10 @@ namespace UTTT.Ejemplo.Persona
                     persona.dteFechaNacimiento = fechaNacimiento;
                     persona.intNumHermanos = int.Parse(this.txtHermanos.Text);
 
+                    persona.strCorreo = this.txtCorreo.Text.Trim();
+                    persona.strCodigoP = this.txtCodigoP.Text.Trim();
+                    persona.strRfc = this.txtRfc.Text.Trim();
+
                     dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se agrego correctamente.");
@@ -136,9 +143,15 @@ namespace UTTT.Ejemplo.Persona
                     DateTime fechaNacimiento = this.FechaNaci.SelectedDate.Date;
                     persona.dteFechaNacimiento = fechaNacimiento;
                     persona.intNumHermanos = int.Parse(this.txtHermanos.Text);
+
+                    persona.strCorreo = this.txtCorreo.Text.Trim();
+                    persona.strCodigoP = this.txtCodigoP.Text.Trim();
+                    persona.strRfc = this.txtRfc.Text.Trim();
+
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se edito correctamente.");
                     this.Response.Redirect("~/PersonaPrincipal.aspx", false);
+
                 }
             }
             catch (Exception _e)

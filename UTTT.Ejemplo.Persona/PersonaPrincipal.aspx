@@ -49,9 +49,10 @@
                 Width="1067px" CellPadding="3" GridLines="Horizontal" 
                 onrowcommand="dgvPersonas_RowCommand" BackColor="White" 
                 BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" 
-                ViewStateMode="Disabled">
+                ViewStateMode="Disabled" OnSelectedIndexChanged="dgvPersonas_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
-                <Columns>
+                <Columns> 
+
                     <asp:BoundField DataField="strClaveUnica" HeaderText="Clave Unica" 
                         ReadOnly="True" SortExpression="strClaveUnica" />
                     <asp:BoundField DataField="strNombre" HeaderText="Nombre" ReadOnly="True" 
@@ -62,10 +63,13 @@
                         SortExpression="strAMaterno" />
                     <asp:BoundField DataField="CatSexo" HeaderText="Sexo" 
                         SortExpression="CatSexo" />
-                    <asp:BoundField DataField="dteFechaNacimiento" HeaderText="Fecha Pilin " 
-                        SortExpression="dteFechaNacimiento" />
+                    <asp:BoundField DataField="dteFechaNacimiento" HeaderText="Fecha " 
+                        SortExpression="dteFechaNacimiento"/>
                     <asp:BoundField DataField="intNumHermanos" HeaderText="Carnales" 
                         SortExpression="intNumHermanos" />
+                  
+
+
                     <asp:TemplateField HeaderText="Editar">
                         <ItemTemplate>
                                     <asp:ImageButton runat="server" ID="imgEditar" CommandName="Editar" CommandArgument='<%#Bind("id") %>' ImageUrl="~/Images/editrecord_16x16.png" />
