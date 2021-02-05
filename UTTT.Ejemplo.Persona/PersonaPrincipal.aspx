@@ -46,7 +46,7 @@
         
              <asp:GridView ID="dgvPersonas" runat="server" 
                 AllowPaging="True" AutoGenerateColumns="False" DataSourceID="DataSourcePersona" 
-                Width="1067px" CellPadding="3" GridLines="Horizontal" 
+                Width="1026px" CellPadding="3" GridLines="Horizontal" 
                 onrowcommand="dgvPersonas_RowCommand" BackColor="White" 
                 BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" 
                 ViewStateMode="Disabled" OnSelectedIndexChanged="dgvPersonas_SelectedIndexChanged">
@@ -62,7 +62,7 @@
                     <asp:BoundField DataField="strAMaterno" HeaderText="AMaterno" ReadOnly="True" 
                         SortExpression="strAMaterno" />
                     <asp:BoundField DataField="CatSexo" HeaderText="Sexo" 
-                        SortExpression="CatSexo" />
+                        SortExpression="CatSexo" ReadOnly="True" />
                     <asp:BoundField DataField="dteFechaNacimiento" HeaderText="Fecha " 
                         SortExpression="dteFechaNacimiento"/>
                     <asp:BoundField DataField="intNumHermanos" HeaderText="Carnales" 

@@ -36,7 +36,7 @@
                 Height="25px" Width="253px" 
                 onselectedindexchanged="ddlSexo_SelectedIndexChanged">
             </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlSexo" ErrorMessage="¿Eres Mujer, Hombre o Alma libre?" InitialValue="-1"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlSexo" ErrorMessage="¿Eres Mujer, Hombre O Un Alma Libre?" InitialValue="-1"></asp:RequiredFieldValidator>
             <br /> 
             <br />
     </div>
@@ -50,7 +50,7 @@
             <asp:TextBox ID="txtClaveUnica" runat="server" 
                 Width="249px" ViewStateMode="Disabled" placeholder="Solo Admite Numeros"></asp:TextBox>
         
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtClaveUnica" ErrorMessage="Solo Se Admiten Numeros " ValidationExpression="\d{3}"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtClaveUnica" ErrorMessage="Solo Se Admiten Un Maximo De 3 Numeros Y Nada De Letras " ValidationExpression="\d{3}"></asp:RegularExpressionValidator>
         
             <br />
             <br />
@@ -63,7 +63,7 @@
             Nombre:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:TextBox 
                 ID="txtNombre" runat="server" Width="249px" ViewStateMode="Disabled" placeholder="Ingresa Tu Nombre"></asp:TextBox>
         
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtNombre" ErrorMessage="Solo Se Admiten Nombres" ValidationExpression="[A-z]{3,15}"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtNombre" ErrorMessage="Solo Se Admiten Como Minimo 3 letras Para Nombres Y Nada De Numeros" ValidationExpression="([aA-záéíóúZÁÉÍÓÚ]{3}[aA-zñáéíóúZÁÉÍÓÚ]+[\s]*)"></asp:RegularExpressionValidator>
         
             <br />
             <br />
@@ -73,7 +73,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             A Paterno:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox 
                 ID="txtAPaterno" runat="server" Width="249px" ViewStateMode="Disabled" placeholder="Ingresa Tu Apellido Paterno"></asp:TextBox>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtAPaterno" ErrorMessage="RegularExpressionValidator" ValidationExpression="[A-z]{3,15}"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtAPaterno" ErrorMessage="Solo Se Admiten Como Minimo 3 letras Para A Paterno Y Nada De Numeros" ValidationExpression="([aA-záéíóúZÁÉÍÓÚ]{3}[aA-zñáéíóúZÁÉÍÓÚ]+[\s]*)"></asp:RegularExpressionValidator>
             <br />
             <br />
         </div>
@@ -85,7 +85,7 @@
             <asp:TextBox ID="txtAMaterno" runat="server" Width="248px" 
                 ViewStateMode="Disabled" placeholder="Ingresa Tu Apellido Materno"></asp:TextBox>
         
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtAMaterno" ErrorMessage="RegularExpressionValidator" ValidationExpression="[A-z]{3,15}"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtAMaterno" ErrorMessage="Solo Se Admiten Como Minimo 3 letras Para A Materno Y Nada De Numeros" ValidationExpression="([aA-záéíóúZÁÉÍÓÚ]{3}[aA-zñáéíóúZÁÉÍÓÚ]+[\s]*)"></asp:RegularExpressionValidator>
         
             <br />
             <br />
@@ -93,25 +93,17 @@
         </div>
     <div style="margin-left: 360px"> 
     
-        Fecha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fecha De Nacimiento:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        <asp:Calendar ID="FechaNaci" runat="server" OnSelectionChanged="FechaNaci_SelectionChanged" Width="320px"> <OtherMonthDayStyle ForeColor="LightGray">
-           </OtherMonthDayStyle>
 
-           <TitleStyle BackColor="Silver"
-                       ForeColor="DarkSlateGray">
-           </TitleStyle>
+        <asp:Calendar ID="FechaNaci" runat="server" OnSelectionChanged="FechaNaci_SelectionChanged" Width="373px" >  
 
-           <DayStyle BackColor="Azure">
-           </DayStyle>
+        </asp:Calendar>
 
-           <SelectedDayStyle BackColor="Tomato"
-                             Font-Bold="True">
-           </SelectedDayStyle></asp:Calendar>
 &nbsp;<br />
         NumHermanos:<asp:TextBox ID="txtHermanos" runat="server" Width="276px" placeholder="¿Cuantos hermanos tienes?" Height="25px"></asp:TextBox>
     
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtHermanos" ErrorMessage="RegularExpressionValidator" ValidationExpression="\d{1}"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtHermanos" ErrorMessage="Solo Se Admite El Numero En Cantidad De Herman@s Que Tengas" ValidationExpression="\d{1}"></asp:RegularExpressionValidator>
     
         <br />
         <br />
@@ -122,13 +114,13 @@
         <br />
         <asp:Label ID="Label2" runat="server" Text="CodigoPostal: "></asp:Label>
         <asp:TextBox ID="txtCodigoP" runat="server" Height="30px" Width="278px" placeholder="Ingresa El Codigo Postal"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtCodigoP" ErrorMessage="Ingresa Un Codigo Postal Correcto Por Ejemplo: 42380  " ValidationExpression="\d{5}(-\d{4})?"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtCodigoP" ErrorMessage="Un Codigo Postal Valido Puede Ser: 42380  " ValidationExpression="\d{5}(-\d{4})?"></asp:RegularExpressionValidator>
         <br />
         <input id="hide" type="hidden" runat="server"/> 
         <br />
         <asp:Label ID="Label3" runat="server" Text="RFC:"></asp:Label>
         <asp:TextBox ID="txtRfc" runat="server" Height="31px" Width="341px" placeholder="Ingresa Tu Rfc"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txtRfc" ErrorMessage="Un Ejemplo De RFC Valido Puede Ser RAGU0006211" ValidationExpression="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txtRfc" ErrorMessage="Un Ejemplo De RFC Valido Puede Ser RAGU0006211" ValidationExpression="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$"></asp:RegularExpressionValidator>
         <br />
         <br />
        
@@ -141,7 +133,8 @@
             onclick="btnAceptar_Click" ViewStateMode="Disabled" OnClientClick="return valid();" />
         &nbsp;&nbsp;&nbsp;
         <asp:Button type="button" class="btn btn-danger"  ID="btnCancelar" runat="server" Text="Cancelar" 
-            onclick="btnCancelar_Click" ViewStateMode="Disabled" />
+            onclick="btnCancelar_Click" ViewStateMode="Disabled" OnClientClick="return valid();" />
+        <br />
     </div>
 
   </form>

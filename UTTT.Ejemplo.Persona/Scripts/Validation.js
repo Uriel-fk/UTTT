@@ -13,17 +13,18 @@
     var ban = true;
     var mensaje = "";
 
-    // si ponemos == null no respeta la primera mensaje asi que lo deje como ==""
+    // si ponemos == "" no respeta la primera mensaje asi que lo deje como ==null
+    //se utilizaron if 
     if (claven == null || nom == null || apaterno == null || amaterno == null || date == null) {
         ban = false;
         mensaje = "Acceso denegado"; 
 
     } else if (!(/\d{3}$/.test(claven))) {
-        mensaje = "Solo se admiten letras";
+        mensaje = "Solo se admiten Numeros para la clave unica";
         ban = false;
 
-    } else if (!(/[A-z]{3}/.test(nom)) || !(/[A-z]{3}/.test(apaterno)) || !(/[A-z]{3}/.test(amaterno))) {
-        mensaje = "Solo se admiten un maximo de 3 numeros";
+    } else if (!(/^([aA-záéíóúZÁÉÍÓÚ]{3}[a-zñáéíóú]+[\s]*)+$/.test(nom)) || !(/^([aA-záéíóúZÁÉÍÓÚ]{3}[a-zñáéíóú]+[\s]*)+$/.test(apaterno)) || !(/^([aA-záéíóúZÁÉÍÓÚ]{3}[a-zñáéíóú]+[\s]*)+$/.test(amaterno))) {
+        mensaje = "Solo se admiten un maximo de 3 letras en los Campos para Nombre, A paterno, A materno, Respetando la gramatica de Escritura la primera mayuscula y despues minisculas ";
         ban = false;
 
     } else if (f <= 17) {
